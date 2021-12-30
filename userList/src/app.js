@@ -1,53 +1,11 @@
-// import gallery from './gallery.js'
-// import table from './table.js'
-
-const gallery = {
-    props:['userData'],
-    template:`
-    <div>
-        <div v-for="row in userTable" style="display:flex; flex-direction:row">
-            <div v-for="data in row" style="border:solid">{{data}}</div>
-        </div>
-    </div>
-    `,
-    data(){
-        return{
-            userTable:[]
-        }
-    },
-    methods:{
-        propsToTable(){
-            var res=[];
-            for (let i = 0; i < this.userData.length; i++) {
-                var row=[]
-                row.push(this.userData[i],this.userData[i++])
-                res.push(row)
-            }
-            return res
-        }
-    },
-    created(){
-        console.log(this.propsToTable())
-        this.userTable=this.propsToTable();
-    }
-}
-
-const table = {
-    props:['userData'],
-    template:`
-        <div>
-            <ul>
-                <li v-for="user in userData">{{user}}</li>
-            </ul>
-        </div>
-    `
-}
+import {gallery} from './gallery.js'
+import {table} from './table.js'
 
 new Vue({
     el:"#app",
     components:{
         'gallery-view':gallery,
-        'table-view':table
+        'table-view':table,
     },
     data:{
         getViewType:[],
@@ -93,6 +51,7 @@ new Vue({
     created(){
         //컴포넌트 가져오기 (지역컴포넌트로 viewType만 등록한다고 가정)
         this.getViewType=Object.keys(this.$options.components)
+        console.log(this.getViewType);
         this.userData=this.getData()
     }
 
