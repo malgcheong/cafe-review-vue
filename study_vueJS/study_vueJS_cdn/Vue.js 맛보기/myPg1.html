@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title> Vue JS 맛보기</title>
+</head>
+<body>
+    <div id="app">
+        <H1>Hello {{userNames[userNames.length-1]}}!!!</H1>
+        <hr width="50%" style= "margin-left:0">
+        <form action="http://localhost:8081/login.html">
+            input your name: 
+            <input type="text" v-model= "name" >
+            <input type="button" value="추가" v-on:click="addItem" style="background-color:skyblue">    
+            <input type="button" value="삭제" v-on:click="popItem" style="background-color:indianred">
+            <br>
+            <strong v-if="name.length>2"><br>두글자 이하로 작성해주세요.</strong>
+            <hr width="50%" style= "margin-left:0">
+            <ul>
+                <input type="submit" value="제출" style="background-color:lawngreen; padding-left: 20px; padding-right: 20px;">
+                <li v-for="userName in userNames"><input type="text" name="name" v-model="userName" style="border:0;" readonly></li>
+            </ul>
+
+        </form>
+        <br>
+
+        
+    </div>
+    <script>
+        const app = new Vue({
+            el: "div",
+
+            data: {
+                name: "",
+                userNames: ["효정", "여진", "청우"]
+            },
+
+            methods: {
+                addItem(){
+                    this.checkLength();
+                    this.userNames.push(this.name);
+                },
+                
+                popItem(){
+                    this.checkLength();
+                    this.userNames.pop();
+                },
+
+                checkLength(){
+                    if(this.name.length > 2) alert("두글자 이하로 작성해주세요.");
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>
