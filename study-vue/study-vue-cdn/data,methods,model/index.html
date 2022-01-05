@@ -11,7 +11,7 @@
     <div id="app">
         <H1>Hello {{userNames[userNames.length-1]}}!!!</H1>
         <hr width="50%" style= "margin-left:0">
-        <form action="http://localhost:8081/login.html">
+        <form action="./src/admin/login.html">
             input your name: 
             <input type="text" v-model= "name" >
             <input type="button" value="추가" v-on:click="addItem" style="background-color:skyblue">    
