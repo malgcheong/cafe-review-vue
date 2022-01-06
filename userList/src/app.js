@@ -11,10 +11,12 @@ new Vue({
         getViewType:[],
         type:'',
         userData:[],
-        activedTab:''
+        activedTab:'',
+        heart:0
     },
     template:`
         <div>
+            <div>Enjoy this site! {{heart}} like this space</div>
             <div class="buttons_viewType" style="padding:20px;">
                 <button
                 v-for="type in getViewType"
@@ -27,7 +29,7 @@ new Vue({
                 </button>
             </div>
             <div class="user-list" style="padding:40px;">
-                <gallery-view :userData="userData" v-if="type=='gallery-view'"></gallery-view>
+                <gallery-view :userData="userData" v-if="type=='gallery-view'" @galleryHeart="getHeart"></gallery-view>
                 <table-view :userData="userData" v-if="type=='table-view'"></table-view>
             </div>
         </div>
@@ -51,6 +53,9 @@ new Vue({
         },
         activate(type){
             return this.type==type&&"active"
+        },
+        getHeart(heart){
+            this.heart=heart
         }
     },
     created(){

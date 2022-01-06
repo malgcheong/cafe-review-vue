@@ -33,6 +33,7 @@ const gallery = {
         },
         upHeart(){
             this.heart++;
+            this.$emit('galleryHeart',this.heart)
         }
     },
     created(){
