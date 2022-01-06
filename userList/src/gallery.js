@@ -6,10 +6,10 @@ const gallery = {
         <div v-for="row in userTable" style="display:flex; flex-direction:row">
             <div v-for="(data,idx) in row" style="border:solid">
                 {{data}}
-                <button :class="idx" @click="upHeart">
+                <button @click="upHeart(idx)">
                     <img src="./heart.png" class="heart">
+                    {{heart[idx].count}}
                 </button>
-                <div>{{heartCount}}</div>
             </div>
         </div>
     </div>
@@ -17,7 +17,8 @@ const gallery = {
     data(){
         return{
             userTable:[],
-            heart:0
+            heart:[],
+            sumHeart:0
         }
     },
     methods:{
@@ -25,15 +26,19 @@ const gallery = {
             var res=[];
             for (let i = 0; i < this.userData.length; i++) {
                 var row=[]
-                row.push(this.userData[i],this.userData[i++])
+                row.push(this.userData[i],this.userData[++i])
                 res.push(row)
+                this.heart.push({count:0})
             }
             console.log(res)
             return res
         },
-        upHeart(){
-            this.heart++;
-            this.$emit('galleryHeart',this.heart)
+        upHeart(key){
+            this.heart[key].count++;
+            this.heart.forEach(element => {
+                
+            });
+            this.$emit('galleryHeart',this.sumHeart)
         }
     },
     created(){

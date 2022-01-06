@@ -23,7 +23,6 @@ new Vue({
                 :type="type"
                 @click="switchType(type)"
                 :class="activate(type)"
-                
                 >
                 {{type}}
                 </button>
@@ -53,6 +52,7 @@ new Vue({
         },
         activate(type){
             return this.type==type&&"active"
+            //if(this.type==type){return active}
         },
         getHeart(heart){
             this.heart=heart
