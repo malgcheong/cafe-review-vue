@@ -3,37 +3,39 @@ const gallery = {
     props:['userData'],
     template:`
     <div>
-        <table id = "gallery"></table>
+        <table>
+            <tr v-for = "rowSize in getRowSize"> 
+                {{userIndex = rowSize - 1}}
+                <td v-for = "user in getUser" style = "border:solid"> {{user}} </td>
+            </tr>
+        </table>
     </div>
     `,
     data(){
         return{
             userTable:[],
-            size:3, //column size
+            userIndex: 0,
+            colSize:3, //column size
+        }
+    },
+    computed: {
+        getRowSize:function(){
+            debugger;
+            return Math.ceil(this.userTable.length/this.colSize)
+        },
+        getUser:function(){
+            debugger;
+            return this.userTable.slice(this.getIndex, this.getIndex + this.colSize);
+        },
+        getIndex:function(){
+            debugger;
+            return this.userIndex * this.colSize;
+
         }
     },
     methods:{
-        getTable(){
-            let table = document.getElementById("gallery");
-            let col = 0;
-            let content = "";
-
-            Array.from(this.userTable).forEach((value, index, array) =>{
-                if(col == index){
-                    content += "<tr>";
-                    col += this.size;
-                }   
-                content += `<td style='border:solid'> ${JSON.stringify(value)} </td>` 
-                if(col-1 == index) content += "</tr>"
-            })
-
-            table.innerHTML = content;
-        }
     },
     created(){
         this.userTable=this.userData;
     },
-    mounted(){
-        this.getTable();
-    }
 }
