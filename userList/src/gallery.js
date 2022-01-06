@@ -4,13 +4,20 @@ const gallery = {
     template:`
     <div>
         <div v-for="row in userTable" style="display:flex; flex-direction:row">
-            <div v-for="data in row" style="border:solid">{{data}}</div>
+            <div v-for="(data,idx) in row" style="border:solid">
+                {{data}}
+                <button :class="idx" @click="upHeart">
+                    <img src="./heart.png" class="heart">
+                </button>
+                <div>{{heartCount}}</div>
+            </div>
         </div>
     </div>
     `,
     data(){
         return{
-            userTable:[]
+            userTable:[],
+            heart:0
         }
     },
     methods:{
@@ -23,10 +30,19 @@ const gallery = {
             }
             console.log(res)
             return res
+        },
+        upHeart(){
+            this.heart++;
         }
     },
     created(){
         console.log(this.propsToTable())
         this.userTable=this.propsToTable();
+    },
+    computed:{
+        heartCount:function(){
+            return this.heart
+        }
+        
     }
 }
