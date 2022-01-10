@@ -35,8 +35,8 @@ const gallery = {
         },
         upHeart(key){
             this.heart[key].count++;
-            this.heart.forEach(element => {
-                
+            this.heart.forEach(h => {
+                this.sumHeart+=h.count
             });
             this.$emit('galleryHeart',this.sumHeart)
         }
