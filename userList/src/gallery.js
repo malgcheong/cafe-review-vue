@@ -31,14 +31,17 @@ const gallery = {
             //배열 index로 항목을 직접 설정하는 경우 vue는 배열의 변화를 감지할 수 없다
             //Vue.set()메서드를 사용하거나 속성이 존재해야한다
             var count = this.heart[key]+1;
-            Vue.set(this.heart,key,count);
+            Vue.set(this.heart, key, count);
             //this.heart.splice(key,1,count);
             //this.heart[key].count++;
-            var total = 0;
-            this.heart.forEach(element => {
-                total += element;
-            });
-            this.sumHeart=total;
+
+            //reduce 함수사용해보기
+            this.sumHeart = this.heart.reduce((prev,curr) => {return prev + curr});
+            //var total = 0;
+            // this.heart.forEach(element => {
+            //     total += element;
+            // });
+            // this.sumHeart=total;
             this.$emit('galleryHeart',this.sumHeart)
         }
     },
