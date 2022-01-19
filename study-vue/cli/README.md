@@ -1,4 +1,4 @@
-# study-vue-cli
+# cli
 
 ## Project setup
 ```
