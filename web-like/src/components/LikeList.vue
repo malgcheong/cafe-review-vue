@@ -1,6 +1,6 @@
 <template>
     <div>
-        <table class="table table-striped table-hover">
+        <table class="cafeTable">
             <thead>
                 <tr>
                     <th>
@@ -35,30 +35,11 @@
 
 <script>
 export default {
+    props: ['likeList'],
     data(){
         return{
-            likeLists:[
-            {
-                cafeName:'인오프',
-                cafeLocation:'하단',
-                numOfReview:10,
-                numOfLike:24
-            },
-            {
-                cafeName:'나우어스',
-                cafeLocation:'양정',
-                numOfReview:15,
-                numOfLike:32
-            },
-            {
-                cafeName:'이프유스테이',
-                cafeLocation:'하단',
-                numOfReview:5,
-                numOfLike:10
-            },
-            ],
-            selected:[],
-            selectAll:false
+          selected:[],
+          selectAll:false
         }
     },
     methods:{
@@ -76,6 +57,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scope>
+.cafeTable{
+  font-family: 'Do Hyeon', sans-serif;
+}
 </style>

@@ -34,6 +34,7 @@ const gallery = {
             Vue.set(this.heart, key, count);
             //this.heart.splice(key,1,count);
             //this.heart[key].count++;
+            
 
             //reduce 함수사용해보기
             this.sumHeart = this.heart.reduce((prev,curr) => {return prev + curr});
