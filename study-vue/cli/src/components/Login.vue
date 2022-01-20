@@ -41,10 +41,8 @@
         methods:{
             getCertification:function(){
                 // var vm = this;
-                // axios.get('https://jsonplaceholder.typicode.com/users/')
+                // axios.get('')
                 // .then(function(response) {
-                //     console.log(response.data);
-                //     vm.users = response.data;
                 // })
                 // .catch(function(error) {
                 // console.log(error);
