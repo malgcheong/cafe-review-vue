@@ -63,7 +63,6 @@ export default {
 </script>
 
 <style>
-
   .contentItem {
     margin-bottom: 20px;
     word-break:break-all;
@@ -92,5 +91,4 @@ export default {
   .checkbox{
     border-radius: 3px;
   }
-
 </style>
