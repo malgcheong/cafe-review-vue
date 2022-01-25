@@ -1,4 +1,4 @@
-# cli
+# cafe-community
 
 ## Project setup
 ```
