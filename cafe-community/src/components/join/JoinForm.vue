@@ -6,10 +6,10 @@
         </div>
         <div>
             <label for="email">이메일</label>:
-            <input type="text" id="email">
+            <input type="text" id="email" :class= "{item_readonly:readonly}" @keydown="readonly=false">
             <button type="button" v-on:click="getPasscode">인증 요청</button>
         </div>
-        <div :class= "{getDisplay}">
+        <div :class= "display">
             <label for="passcode">인증번호</label>:
             <input type="text" id="passcode" placeholder="인증번호 입력">
             <button type="button" v-on:click="verifyPasscode">확인</button>
@@ -62,13 +62,11 @@
                     console.log(error);
                 });
 
+                //인증번호 display
+                this.display = "item_display_none";
+
             },
         },
-        computed:{
-            getDisplay:function(){
-                return this.display;
-            }
-        }
     }
 </script>
 
@@ -78,5 +76,8 @@
     }
     .item_display_none{
         display: none;
+    }
+    .item_readonly{
+        background-color: rgb(196, 186, 186);
     }
 </style>
