@@ -1,4 +1,4 @@
-# project-front
+# cafe-web
 
 ## Project setup
 ```
