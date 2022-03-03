@@ -4,9 +4,19 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
-  state: {},
-  getters: {},
-  mutations: {},
+  state: {
+    selectedPost: {},
+  },
+  getters: {
+    getPost(state) {
+      return state.selectedPost;
+    },
+  },
+  mutations: {
+    selectPost(state, obj) {
+      Object.assign(state.selectedPost, obj);
+    },
+  },
   actions: {},
 });
 
