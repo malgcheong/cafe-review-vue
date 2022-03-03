@@ -28,5 +28,7 @@
 </script>
 
 <style scoped>
-
+    footer{
+        background-color:#00c2cb;	
+    }
 </style>

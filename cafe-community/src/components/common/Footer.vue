@@ -1,64 +1,67 @@
 <template>
 <div class = "wrapper">
-  <div class="footer_top menu_list_cover">
-    <div class="menu_list ">
-      <div class="list_title open">
-        인프런
+  <div class="footer_top">
+    <div v-for="(menuItem, index) in menuList" :key="index" class="menu_list ">
+      <div class="list_title">
+        {{menuItem.menu}}
       </div>
-      <div class="menu_sublist" style="max-height: 118px;"> <a href="/notices" class="list_link">공지사항</a><a href="/inflearn" class="list_link">인프런 소개</a><a href="https://doc.clickup.com/d/3gfz7-5843/log/3gfz7-75205/%EC%9D%B8%ED%94%84%EB%9E%A9-%EC%8B%A4-log" target="_blank" class="list_link">인프랩 실Log</a><a href="/pages/withus" class="list_link">채용 안내</a>
-      </div>
-    </div>
-    <div class="menu_list ">
-      <div class="list_title open">
-        고객센터
-      </div>
-      <div class="menu_sublist" style="max-height: 118px;"> <a href="/faq" class="list_link">자주묻는 질문</a><a href="/certificate" class="list_link">수료증 확인</a><a href="/policy/terms-of-service" class="list_link">이용약관</a><a href="/policy/privacy" class="list_link">개인정보취급방침</a>
+      <div v-for="(subItem, index) in menuItem.sublist" :key="index" class="menu_sublist"> 
+        <a v-bind:href="subItem.href" class="list_link">{{subItem.menu}}</a>
       </div>
     </div>
-    <div class="menu_list ">
-      <div class="list_title open">
-        신청하기
-      </div>
-      <div class="menu_sublist" style="max-height: 91px;"> <a href="/open-knowledge" class="list_link">지식공유참여</a><a href="/intro-group" class="list_link">인프런 비즈니스</a><a href="/university" class="list_link">인프런 X 대학교</a>
-      </div>
-    </div>
-</div>
+  </div>
 
-<div class="footer_bottom">
-        <div class="footer_bottom_left footer_info">
-          <div class="footer_info_top">
-            <span><a href="/policy/privacy">개인정보취급방침</a></span>
-            <span><a href="/policy/terms-of-service">이용약관</a></span>
-          </div>
-          <div class="footer_info_bottom">
-            <div class="is-mobile info_label open">
-              (주)인프랩 사업자 정보
-            </div>
-            <div class="info-dropdown" style="max-height: 54px;">
-              <span class="is-hidden-mobile">(주)인프랩 | </span>
-              <span>대표자: 이형주 | </span>
-              <span>
-                사업자번호: 499-81-00612 
-                <a href="http://www.ftc.go.kr/bizCommPop.do?wrkr_no=4998100612" target="_blank">사업자 정보 확인</a>
-              </span>
-              <br>
-              <span>통신판매업: 2018-성남분당B-0062 | </span>
-              <span>개인정보보호책임자: 구자유 | </span>
-              <span>이메일: <a href="mailto:info@inflearn.com">info@inflearn.com</a></span>
-              <br>
-              <span>주소: 경기도 성남시 분당구 대왕판교로 660 유스페이스1 301-1호</span>
-            </div>
-            ©INFLAB. ALL RIGHTS RESERVED
-          </div>
+  <div class="footer_bottom">
+    <div class="footer_bottom_left">
+      <div class="footer_info_top">
+        <span><img src='../../assets/images/&.png' style="width:30px; height:30px;"></span>
+        <span><a href="/policy/privacy">개인정보취급방침</a></span>
+        <span><a href="/policy/terms-of-service">이용약관</a></span>
+      </div>
+      <div class="footer_info_bottom">
+        <div>
+          PICA 사업자 정보
         </div>
+        <div>
+          <span>PICA | </span>
+          <span>대표자: 류청진 | </span>
+          <span>개인정보보호책임자: 서청정 | </span>
+          <span>이메일: skacjddn7@gmail.com</span>
+          <br>
+        </div>
+        ©PICA. ALL RIGHTS RESERVED
       </div>
     </div>
+    <div class="footer_bottom_right">
+    </div>
+  </div>
+</div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      menuList: [
+        {
+          menu: "피카",
+          sublist:[{menu:"공지사항", href:"/notice"}, {menu:"피카 소개", href:"/info"}]
+        },
+        {
+          menu: "고객센터",
+          sublist:[{menu:"자주묻는 질문", href:"/questions"}, {menu:"이용약관", href:"/terms"}, {menu:"개인정보취급방침", href:"/persinfo"}]
+        },
+        {
+          menu: "피카",
+          sublist:[{menu:"공지사항", href:"/notice"}, {menu:"피카 소개", href:"/info"}]
+        },
+      ],
+
+    };
+  },
+};
   
-}
+
 </script>
 
 <style scoped>
@@ -68,17 +71,66 @@ export default {
     max-width: 1152px;
     margin: 0 auto;
   }
-  .footer_top{
 
+  .footer_top{
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 20px;
+    border-bottom: 1px solid #444;
+    
   }
   .menu_list{
-
+    margin-right: 20px;
   }
   .list_title{
-
+    font-weight: 700;
+    font-size: 14px;
+    padding: 16px 0;
+    line-height: 1.43;
+    color:black;
   }
   .menu_sublist{
+    display: flex;
+    flex-direction: column;
+    /* 반응형 
+    overflow: hidden;
+    transition: max-height .2s ease-in-out; */
+  }
+  .list_link{
+    color: #FAEBCD;
+    font-size: 14px;
+    line-height: 1.43;
+    margin-bottom: 7px;
+  }
 
+  .footer_bottom{
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 20px;
+  }
+  .footer_bottom_left{
+    display: flex;
+    flex-direction: column;
+  }
+  .footer_info_top{
+    margin-bottom: 8px;
+  }
+  .footer_info_top a{
+    font-size: 12px;
+    color: #FAEBCD;
+    line-height: 1.5;
+    font-weight: 700;
+  }
+  .footer_info_top a::before{
+    content:"|";
+  }
+  .footer_info_top span{
+    margin-right: 5px;
+  }
+  .footer_info_bottom{
+    font-size: 12px;
+    line-height: 1.5;
+    color: #FAEBCD;
   }
 
 </style>
