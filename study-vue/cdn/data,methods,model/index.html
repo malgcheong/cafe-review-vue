@@ -17,7 +17,8 @@
             <input type="button" value="추가" v-on:click="addItem" style="background-color:skyblue">    
             <input type="button" value="삭제" v-on:click="popItem" style="background-color:indianred">
             <br>
-            <strong v-if="name.length>2"><br>두글자 이하로 작성해주세요.</strong>
+            <br>
+            <strong v-if="name.length>2">두글자 이하로 작성해주세요.</strong>
             <hr width="50%" style= "margin-left:0">
             <ul>
                 <input type="submit" value="제출" style="background-color:lawngreen; padding-left: 20px; padding-right: 20px;">
@@ -40,17 +41,19 @@
 
             methods: {
                 addItem(){
-                    this.checkLength();
+                    if(!this.checkLength())
                     this.userNames.push(this.name);
                 },
                 
                 popItem(){
-                    this.checkLength();
                     this.userNames.pop();
                 },
 
                 checkLength(){
-                    if(this.name.length > 2) alert("두글자 이하로 작성해주세요.");
+                    if(this.name.length > 2) {
+                        alert("두글자 이하로 작성해주세요.");
+                        return true;
+                    }
                 }
 
             }

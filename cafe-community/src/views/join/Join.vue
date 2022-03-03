@@ -12,9 +12,9 @@
 </template>
 
 <script>
-    import JoinForm from '../components/join/JoinForm.vue'
-    import JoinTos from '../components/join/JoinTos.vue'
-    import Footer from '../components/common/Footer.vue'
+    import JoinForm from '../../components/join/JoinForm.vue'
+    import JoinTos from '../../components/join/JoinTos.vue'
+    import Footer from '../../components/common/Footer.vue'
     
     
     export default {

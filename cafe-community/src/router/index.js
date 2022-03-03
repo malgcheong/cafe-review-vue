@@ -1,7 +1,6 @@
 import Vue from 'vue'
-import Home from '../views/Home'
-import Join from '../views/Join'
-import Join2 from '../views/Join2'
+import Home from '../views/home/Home'
+import Join from '../views/join/Join'
 import VueRouter from 'vue-router'
 
 Vue.use(VueRouter);
@@ -17,10 +16,6 @@ const router = new VueRouter({
             path: "/Join",
             component: Join
         },
-        {
-            path: "/Join2",
-            component: Join2
-        }
     ]
 });
 
