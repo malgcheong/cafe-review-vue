@@ -21,13 +21,15 @@
             </div>        
             <br>
             <br>   
-            <button :disabled="!isAgree">회원가입</button>
+            <button :disabled="!isAgree" @click="clickJoin">회원가입</button>
+            <complete-modal :onModal="onModal"></complete-modal>
         </div>
     </div>
     </div>
 </template>
 <script>
 import contractItem from "../assets/contract"
+import modal from "./complete-modal.vue"
 export default {
     data(){
         return{
@@ -39,7 +41,14 @@ export default {
                 {label:'', id:'chkMail', data:''},
                 {label:'비밀번호', id:'pw', data:''},
                 {label:'비밀번호확인', id:'chkPw', data:''}
-            ]
+            ],
+            onModal:false,
+            completeModal:modal,
+        }
+    },
+    methods:{
+        clickJoin(){
+            this.onModal=true;
         }
     }
 }
