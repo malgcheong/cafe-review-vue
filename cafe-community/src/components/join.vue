@@ -22,10 +22,12 @@
             <br>
             <br>   
             <button :disabled="!isAgree" @click="clickJoin">회원가입</button>
-            <complete-modal :onModal="onModal"></complete-modal>
+           
         </div>
     </div>
+     <complete-modal :onModal="onModal"></complete-modal>
     </div>
+    
 </template>
 <script>
 import contractItem from "../assets/contract"
@@ -43,13 +45,15 @@ export default {
                 {label:'비밀번호확인', id:'chkPw', data:''}
             ],
             onModal:false,
-            completeModal:modal,
         }
     },
     methods:{
         clickJoin(){
             this.onModal=true;
         }
+    },
+    components:{
+        'complete-modal':modal
     }
 }
 </script>
