@@ -1,22 +1,23 @@
 <template lang="">
     <div>
-        <logIn></logIn>
-        <br>
-        <findId></findId>
-        <br>
-        <findIdRes></findIdRes>
-        <br>
-        <findPW></findPW>
-        <br>
-        <findPWRes></findPWRes>
-        <br>
-        <join></join>
-        <br>
-        
+       
+            <logIn></logIn>
+            <br>
+            <findId></findId>
+            <br>
+            <findIdRes></findIdRes>
+            <br>
+            <findPW></findPW>
+            <br>
+            <findPWRes></findPWRes>
+            <br>
+            <join></join>
+            <br>
+            <router-view></router-view>
     </div>
 </template>
 <script>
-import logIn from './components/logIn.vue'
+import logIn from './components/login.vue'
 import findId from './components/find-id.vue'
 import findPW from './components/find-pw.vue'
 import join from './components/join.vue'

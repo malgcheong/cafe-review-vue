@@ -1,16 +1,19 @@
 <template lang="">
     <div>
         <div class="container_login">
+            <h4>아이디찾기 결과</h4>
         <div class="wrap_login">
+            <div>회원님의 정보와 일치하는 아이디 목록입니다.</div>
             <input class="id" type="text" readonly v-model="id">
-            <br>
-            <input class="password" type="text" placeholder="새 비밀번호"/>
-            <input class="confirm-password" type="text" placeholder="비밀번호 확인"/>
            
         </div>
         <div class="wrap_find">
-            <button>확인</button>
-            <button>취소</button>
+            <router-link to="/login">
+                <button>로그인</button>
+            </router-link>
+            <router-link to="/find-pw">
+                <button>비밀번호 찾기</button>
+            </router-link>
         </div>
     </div>
     </div>

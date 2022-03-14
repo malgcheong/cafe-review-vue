@@ -1,6 +1,7 @@
 <template lang="">
     <div>
         <div class="container_join">
+            <h4>회원가입</h4>
         <div class="container_contract">
             <h2>이용약관</h2>
             <div class="wrap_contract" v-for="(item,idx) in contractItem" :item="item" :key="idx">

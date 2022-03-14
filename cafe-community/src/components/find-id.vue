@@ -1,10 +1,13 @@
 <template lang="">
     <div>
         <div class="container_login">
+            <h4>아이디찾기</h4>
         <div class="wrap_login">
             <input class="name" type="text" placeholder="이름을 입력하세요"/>
             <input class="email" type="password" placeholder="이메일을 입력하세요"/>
-            <button class="ok">다음</button>
+            <router-link to="/find-id-result">
+                <button class="ok">다음</button>
+            </router-link>
         </div>
        
     </div>

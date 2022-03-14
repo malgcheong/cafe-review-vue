@@ -1,6 +1,7 @@
 <template>
    
         <div class="container_modal" v-if="onModal">
+            <h4>회원가입완료</h4>
             <div class="background">
                 <div class="modal">
                     <div class="account_info">
@@ -14,7 +15,7 @@
                         축하합니다! 가입이 완료되었습니다!
                     </div>
                     <button @click="goHomeLogIn">확인</button>
-                    <!-- <router-link to="/"> -->
+                    <router-link to="/home">확인</router-link>
                 </div>
             </div>
         </div>
