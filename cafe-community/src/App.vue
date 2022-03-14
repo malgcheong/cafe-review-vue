@@ -21,8 +21,8 @@ import logIn from './components/login.vue'
 import findId from './components/find-id.vue'
 import findPW from './components/find-pw.vue'
 import join from './components/join.vue'
-import findIdRes from './components/find-id-result.vue'
-import findPWRes from './components/find-pw-result.vue'
+import findIdRes from './components/find-pw-result.vue'
+import findPWRes from './components/find-id-result.vue'
 
 
 export default{
