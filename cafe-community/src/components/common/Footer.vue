@@ -6,7 +6,7 @@
         {{menuItem.menu}}
       </div>
       <div v-for="(subItem, index) in menuItem.sublist" :key="index" class="menu_sublist"> 
-        <a v-bind:href="subItem.href" class="list_link">{{subItem.menu}}</a>
+        <router-link v-bind:to="subItem.to" class="list_link">{{subItem.menu}}</router-link>
       </div>
     </div>
   </div>
@@ -15,8 +15,8 @@
     <div class="footer_bottom_left">
       <div class="footer_info_top">
         <span><img src='../../assets/images/&.png' style="width:30px; height:30px;"></span>
-        <span><a href="/policy/privacy">개인정보취급방침</a></span>
-        <span><a href="/policy/terms-of-service">이용약관</a></span>
+        <span><router-link to="/policy/privacy">개인정보취급방침</router-link></span>
+        <span><router-link to="/policy/terms-of-service">이용약관</router-link></span>
       </div>
       <div class="footer_info_bottom">
         <div>
@@ -45,18 +45,17 @@ export default {
       menuList: [
         {
           menu: "피카",
-          sublist:[{menu:"공지사항", href:"/notice"}, {menu:"피카 소개", href:"/info"}]
+          sublist:[{menu:"공지사항", to:"/notice"}, {menu:"피카 소개", to:"/info"}]
         },
         {
           menu: "고객센터",
-          sublist:[{menu:"자주묻는 질문", href:"/questions"}, {menu:"이용약관", href:"/terms"}, {menu:"개인정보취급방침", href:"/persinfo"}]
+          sublist:[{menu:"자주묻는 질문", to:"/questions"}, {menu:"이용약관", to:"/terms"}, {menu:"개인정보취급방침", to:"/persinfo"}]
         },
         {
           menu: "피카",
-          sublist:[{menu:"공지사항", href:"/notice"}, {menu:"피카 소개", href:"/info"}]
+          sublist:[{menu:"공지사항", to:"/notice"}, {menu:"피카 소개", to:"/info"}]
         },
       ],
-
     };
   },
 };

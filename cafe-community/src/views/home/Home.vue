@@ -1,8 +1,8 @@
 <template>
     <div>
-        <!-- <header>
+        <header>
             <Header/>
-        </header> -->
+        </header>
         <main>
             <HomeContent/>
         </main>
@@ -14,13 +14,13 @@
 </template>
 
 <script>
-    // import Header from '../../components/common/Header.vue'
-    import HomeContent from '../../components/home/HomeContent.vue'
-    import Footer from '../../components/common/Footer.vue'
+    import Header from '@/components/common/Header.vue'
+    import HomeContent from '@/components/home/HomeContent.vue'
+    import Footer from '@/components/common/Footer.vue'
 
     export default {
         components:{
-            // Header,
+            Header,
             HomeContent,
             Footer
         }
@@ -28,7 +28,7 @@
 </script>
 
 <style scoped>
-    footer{
-        background-color:#00c2cb;	
+    header, main, footer{
+        background-color:#80a0a1;	
     }
 </style>
