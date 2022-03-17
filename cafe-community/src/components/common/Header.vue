@@ -1,5 +1,7 @@
 <template>
   <nav class="navbar">
+
+    <!--화면 가로가 일정이상 작아질시 -->
     <div class="container mobile_container">
       <div class="content">
         <div class="left">left</div>
@@ -7,6 +9,8 @@
         <div class="right">right</div>
       </div>
     </div>
+
+    <!--화면 가로가 일정이상 커질시 -->
     <div class="container desktop_container">
       <div class="content">
         <div class="brand_header">
@@ -15,6 +19,8 @@
           </router-link>
         </div>
         <div class="navbar-menu">
+
+          <!-- v-for -->
           <div class="navbar-item">
             <router-link to="/Join">
               Posts
@@ -41,6 +47,8 @@
           <div class="navbar-item">
             로그아웃
           </div>
+
+
         </div>
       </div>
 
@@ -53,6 +61,10 @@ export default {
   
 }
 </script>
+
+
+
+
 
 <style scoped>
   .mobile_container{

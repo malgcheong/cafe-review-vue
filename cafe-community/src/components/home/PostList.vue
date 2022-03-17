@@ -7,9 +7,11 @@
             {{items.title}}
         </div>
         <div class="cafe_image">
+            <i class="fa-solid fa-arrow-left fa-3x" @click="prev"></i>
             <div v-for="(item,key) in items.List" :key="key">
                 <img :src= "getImage(item.image)" alt="" style="width:200px; height:200px;">
             </div>
+            <i class="fa-solid fa-arrow-right fa-3x" @click="next"></i>
         </div>
     </section>
 
@@ -28,7 +30,14 @@
             getImage(image){
                 var imgContext = require.context('../../assets/images/', true, /\.*$/);
                 return imgContext('./'+image);
-            }
+            },
+            prev(){
+                console.log(1);
+            },
+            next(){
+                console.log(1);
+            },
+
             
         },
 
