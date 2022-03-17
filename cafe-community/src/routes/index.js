@@ -33,7 +33,7 @@ export default new VueRouter({
             component:findIdRes
         },
         {
-            path:'find-pw-res',
+            path:'/find-pw-res',
             component:findPWRes
         }
     ]

@@ -5,14 +5,14 @@
         <div class="wrap_login">
             <input class="id" type="text" readonly v-model="id">
             <br>
-            <input class="password" type="text" placeholder="새 비밀번호"/>
-            <input class="confirm-password" type="text" placeholder="비밀번호 확인"/>
+            <input class="password" type="text" placeholder="새 비밀번호" v-model="pw"/>
+            <input class="confirm-password" type="text" placeholder="비밀번호 확인" v-model="confirmPW"/>
            
         </div>
         <div class="wrap_find">
-            <router-link to="/login">
-                <button>확인</button>
-            </router-link>
+            <button :disabled="!pw||!confirmPW||pw!==confirmPW">
+                <router-link to="/home" ></router-link>
+            확인</button>
             <router-link to="/find-id">
                 <button>취소</button>
             </router-link>
@@ -24,8 +24,15 @@
 export default {
     data:function(){
     return{
-      id:'sallyryu'
+      id:'sallyryu',
+      pw:'',
+      confirmPW:'',
     }
+  },
+  methods:{
+      validPW(){
+
+      }
   }
 }
 </script>

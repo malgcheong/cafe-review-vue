@@ -3,10 +3,10 @@
         <div class="container_login">
         <h4>로그인</h4>
         <div class="wrap_login">
-            <input class="id" type="text" placeholder="아이디를 입력하세요"/>
-            <input class="pw" type="password" placeholder="pw를 입력하세요"/>
+            <input class="id" type="text" placeholder="아이디를 입력하세요" v-model="id"/>
+            <input class="pw" type="password" placeholder="pw를 입력하세요" v-model="pw"/>
             <router-link to="/home">
-                <button class="button_login">로그인</button>
+                <button class="button_login" @click="logIn">로그인</button>
             </router-link>
         </div>
         <div class="wrap_find">
@@ -24,8 +24,31 @@
     </div>
 </template>
 <script>
+
 export default {
-    
+    data(){
+        return{
+            id:'',
+            pw:'',
+        }
+    },
+    methods:{
+        logIn(){
+            this.$axios.get('https://jsonplaceholder.typicode.com/todos/1')
+            .then(res=>{
+                if(res){
+                    console.log(this.id,this.pw)
+                    this.$router.push('home')
+                }
+            })
+            .catch((error)=>{
+                console.log(error)
+                this.id='';
+                this.pw='';
+                alert('ID와 PW를 확인해주세요')
+            })
+        }
+    }
 }
 </script>
 <style >
