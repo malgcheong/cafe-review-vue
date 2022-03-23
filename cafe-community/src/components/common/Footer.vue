@@ -1,16 +1,15 @@
 <template>
 <div class = "wrapper">
   <div class="footer_top">
-    <div v-for="(menuItem, index) in menuList" :key="index" class="menu_list ">
+    <div v-for="(menuItem, index) in getMenuState" :key="index" class="menu_list ">
       <div class="list_title">
-        {{menuItem.menu}}
+        {{menuItem.menuName}}
       </div>
-      <div v-for="(subItem, index) in menuItem.sublist" :key="index" class="menu_sublist"> 
-        <router-link v-bind:to="subItem.to" class="list_link">{{subItem.menu}}</router-link>
+      <div v-for="(subItem, index) in menuItem.menuList" :key="index" class="menu_sublist"> 
+        <router-link v-bind:to="subItem.to" class="list_link">{{subItem.name}}</router-link>
       </div>
     </div>
   </div>
-
   <div class="footer_bottom">
     <div class="footer_bottom_left">
       <div class="footer_info_top">
@@ -40,24 +39,16 @@
 
 <script>
 export default {
-  data() {
-    return {
-      menuList: [
-        {
-          menu: "피카",
-          sublist:[{menu:"공지사항", to:"/notice"}, {menu:"피카 소개", to:"/info"}]
-        },
-        {
-          menu: "고객센터",
-          sublist:[{menu:"자주묻는 질문", to:"/questions"}, {menu:"이용약관", to:"/terms"}, {menu:"개인정보취급방침", to:"/persinfo"}]
-        },
-        {
-          menu: "피카",
-          sublist:[{menu:"공지사항", to:"/notice"}, {menu:"피카 소개", to:"/info"}]
-        },
-      ],
-    };
-  },
+
+  computed:{
+    getMenuState(){
+      const arr = [];
+      arr.push(this.$store.getters.getMenuState["홈"])
+      arr.push(this.$store.getters.getMenuState["고객센터"])
+      arr.push(this.$store.getters.getMenuState["기타"])
+      return arr;
+    }
+  }
 };
   
 

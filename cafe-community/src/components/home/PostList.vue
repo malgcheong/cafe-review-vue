@@ -42,7 +42,7 @@
         },
 
         created(){
-            axios.get('http://localhost:3000').then((Response)=>{
+            axios.get('http://localhost:3000/home/post').then((Response)=>{
                 this.cafeList=Response.data.cafeList;
             }).catch((Error)=>{
                 console.log(Error);

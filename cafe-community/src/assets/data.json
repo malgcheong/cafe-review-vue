@@ -1,0 +1,44 @@
+{
+  "menu": {
+    "홈" : {
+      "menuName": "홈",
+      "menuList":[{
+        "name":"Posts",
+        "to": "/Join"
+      },{
+        "name": "Comment",
+        "to": "/Join"
+      },{
+        "name": "Likes",    
+        "to": "/Join"
+      },{
+        "name": "Profile",
+        "to": "/Join"
+      }]
+    },
+
+    "고객센터" : {
+      "menuName": "고객센터",
+      "menuList" :[{
+        "name":"자주 묻는 질문",
+        "to": "/Join"
+      },{
+        "name": "이용약관",
+        "to": "/Join"
+      },{
+        "name": "개인정보취급방침",    
+        "to": "/Join"
+      }]
+    },
+    "기타":{
+      "menuName": "기타",
+      "menuList" :[{
+        "name":"피카 소개",
+        "to": "/Join"
+      },{
+        "name": "공지사항",
+        "to": "/Join"
+      }]
+    }
+  }
+} 
