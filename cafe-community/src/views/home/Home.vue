@@ -1,14 +1,8 @@
 <template>
     <div>
-        <header>
-            <Header/>
-        </header>
-        <main>
-            <HomeContent/>
-        </main>
-        <footer>
-            <Footer/>
-        </footer>
+        <Header/>
+        <HomeContent/>
+        <Footer/>
     </div>
 
 </template>

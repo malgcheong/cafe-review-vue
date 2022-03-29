@@ -1,4 +1,5 @@
 <template>
+<header>
   <nav class="navbar">
 
     <!--화면 가로가 일정이상 작아질시 -->
@@ -23,11 +24,9 @@
 
         <!-- 메뉴 -->
         <div class="navbar-menu">
-          <div v-for="(item,index) in getMenuItems" :key="index" class="navbar-item">
-            <router-link v-bind:to="item.to">
+          <router-link v-for="(item,index) in getMenuItems" :key="index" class="navbar-item" v-bind:to="item.to">
               {{item.name}}
-            </router-link>
-          </div>
+          </router-link>
         </div>
 
         <!-- 마이페이지 -->
@@ -44,6 +43,7 @@
 
     </div>
   </nav>
+</header>
 </template>
 
 <script>
@@ -94,6 +94,10 @@ export default {
   }
   .navbar-item{
     width: 150px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color:black;
   }
 
 </style>

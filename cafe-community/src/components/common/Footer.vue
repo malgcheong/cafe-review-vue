@@ -1,40 +1,42 @@
 <template>
-<div class = "wrapper">
-  <div class="footer_top">
-    <div v-for="(menuItem, index) in getMenuState" :key="index" class="menu_list ">
-      <div class="list_title">
-        {{menuItem.menuName}}
+<footer>
+  <div class = "wrapper">
+    <div class="footer_top">
+      <div v-for="(menuItem, index) in getMenuState" :key="index" class="menu_list ">
+        <div class="list_title">
+          {{menuItem.menuName}}
+        </div>
+        <div v-for="(subItem, index) in menuItem.menuList" :key="index" class="menu_sublist"> 
+          <router-link v-bind:to="subItem.to" class="list_link">{{subItem.name}}</router-link>
+        </div>
       </div>
-      <div v-for="(subItem, index) in menuItem.menuList" :key="index" class="menu_sublist"> 
-        <router-link v-bind:to="subItem.to" class="list_link">{{subItem.name}}</router-link>
+    </div>
+    <div class="footer_bottom">
+      <div class="footer_bottom_left">
+        <div class="footer_info_top">
+          <span><img src='../../assets/images/&.png' style="width:30px; height:30px;"></span>
+          <span><router-link to="/policy/privacy">개인정보취급방침</router-link></span>
+          <span><router-link to="/policy/terms-of-service">이용약관</router-link></span>
+        </div>
+        <div class="footer_info_bottom">
+          <div>
+            PICA 사업자 정보
+          </div>
+          <div>
+            <span>PICA | </span>
+            <span>대표자: 류청진 | </span>
+            <span>개인정보보호책임자: 서청정 | </span>
+            <span>이메일: skacjddn7@gmail.com</span>
+            <br>
+          </div>
+          ©PICA. ALL RIGHTS RESERVED
+        </div>
+      </div>
+      <div class="footer_bottom_right">
       </div>
     </div>
   </div>
-  <div class="footer_bottom">
-    <div class="footer_bottom_left">
-      <div class="footer_info_top">
-        <span><img src='../../assets/images/&.png' style="width:30px; height:30px;"></span>
-        <span><router-link to="/policy/privacy">개인정보취급방침</router-link></span>
-        <span><router-link to="/policy/terms-of-service">이용약관</router-link></span>
-      </div>
-      <div class="footer_info_bottom">
-        <div>
-          PICA 사업자 정보
-        </div>
-        <div>
-          <span>PICA | </span>
-          <span>대표자: 류청진 | </span>
-          <span>개인정보보호책임자: 서청정 | </span>
-          <span>이메일: skacjddn7@gmail.com</span>
-          <br>
-        </div>
-        ©PICA. ALL RIGHTS RESERVED
-      </div>
-    </div>
-    <div class="footer_bottom_right">
-    </div>
-  </div>
-</div>
+</footer>
 </template>
 
 <script>
