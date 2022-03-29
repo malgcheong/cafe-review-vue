@@ -19,11 +19,6 @@ export default {
 </script>
 
 <style scoped>
-  img{
-    width: device-width;
-    height: auto;
-    overflow: hidden;
-  }
   .hero_search_tag{
     background-image: url("../../assets/images/8.jpg");
     background-size: cover;

@@ -18,7 +18,7 @@
         <!-- 로고 -->
         <div class="brand_header">
           <router-link to="/Join">
-            <img src='../../assets/images/&.png' style="width:60px; height:60px;">
+            <img src='../../assets/images/PICA.svg' style="width:60px; margin-right:10px;">
           </router-link>
         </div>
 
@@ -98,6 +98,7 @@ export default {
     font-size: 1.5rem;
     font-weight: bold;
     color:black;
+    cursor: pointer;
   }
 
 </style>

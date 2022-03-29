@@ -22,7 +22,5 @@
 </script>
 
 <style scoped>
-    header, main, footer{
-        background-color:#80a0a1;	
-    }
+ 
 </style>
