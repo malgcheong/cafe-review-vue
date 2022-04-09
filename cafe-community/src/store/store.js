@@ -39,10 +39,10 @@ export const store = new Vuex.Store({
 
 	actions: {
 		getUserInfo(context){
-			axios.get('http://localhost:3000/home/login').then((Response)=>{
-					context.commit('setLoginState', Response.data.userInfo);
+			axios.get('http://localhost:3000/pica/login').then((Response)=>{
+				context.commit('setLoginState', Response.data.userInfo);
 			}).catch((Error)=>{
-					console.log(Error);
+				console.log(Error);
 			})
 		}
 	}

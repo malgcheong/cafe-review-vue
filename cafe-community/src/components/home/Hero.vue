@@ -9,10 +9,23 @@
 <script>
 import Search from "@/components/home/Search.vue"
 import Tag from "@/components/home/Tag.vue"
+import axios from 'axios';
 
 export default {
   components:{
     Search, Tag
+  },
+
+  methods:{
+    searchCafe(){
+      axios.post('http://localhost:3000/pica/search', JSON.stringify(`{searchText: ${this.searchText}}`))
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }
   }
 
 }
@@ -27,5 +40,8 @@ export default {
     font-weight: bold;
     font-size: 2rem;
     color: white;
-  }
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
 </style>

@@ -1,12 +1,15 @@
 <template>
-  <section class="tag">
-    <div v-for="(tag, key) in tagList" :key=key :style="tag" class="tag_item">
-      {{tag.name}}
+  <section>
+    <div class="tag">
+      <div v-for="(tag, key) in tagList" :key=key :style="tag" class="tag_item" @click="searchCafe(tag.name)">
+        {{tag.name}}
+      </div>
     </div>
   </section>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data() {
     return{
@@ -30,6 +33,17 @@ export default {
     }
   },
 
+  methods:{
+    searchCafe(searchText){
+      axios.post('http://localhost:3000/pica/search', JSON.stringify(`{searchText: ${searchText}}`))
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }
+  },
   created(){
     this.tagList.forEach(element => {
       let rdColor = `hsl(${parseInt(Math.random() * 24, 10) * 15}, 16%, 57%)`;
@@ -48,7 +62,7 @@ export default {
 <style scoped>
   .tag{
     display: flex;
-    align-items: flex-end;
+    justify-content: center;
     margin: 20px;
   }
   .tag_item{
@@ -56,8 +70,9 @@ export default {
     border: 1rem solid;
     color: whitesmoke;
     border-radius: 30px;
-    box-shadow: 5px 5px 25px black;
+    box-shadow: 5px 5px 20px black;
     font-weight: initial;
     font-size: initial;
+    cursor: pointer;
   }
 </style>

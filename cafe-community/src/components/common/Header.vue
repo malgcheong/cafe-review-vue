@@ -3,20 +3,20 @@
   <nav class="navbar">
 
     <!--화면 가로가 일정이상 작아질시 -->
-    <div class="container mobile_container">
+    <div class="container mobile-container">
       <div class="content">
         <div class="left">left</div>
-        <div class="brand_header">brand</div>
+        <div class="brand-header">brand</div>
         <div class="right">right</div>
       </div>
     </div>
 
     <!--화면 가로가 일정이상 커질시 -->
-    <div class="container desktop_container">
+    <div class="container desktop-container">
       <div class="content">
         
         <!-- 로고 -->
-        <div class="brand_header">
+        <div class="brand-header">
           <router-link to="/Join">
             <img src='../../assets/images/PICA.svg' style="width:60px; margin-right:10px;">
           </router-link>
@@ -71,10 +71,10 @@ export default {
 
 
 <style scoped>
-  .mobile_container{
+  .mobile-container{
     display: none;
   }
-  .desktop_container{
+  .desktop-container{
     display: block;
   }
   .navbar{
