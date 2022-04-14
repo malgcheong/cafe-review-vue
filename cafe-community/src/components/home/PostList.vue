@@ -10,6 +10,10 @@
 
                     <div v-for="(item,key) in items.List" :key="key" class="cafe">
                         <img :src= "getImage(item.image)" :title="key">
+                        <p class="board">카페이름, 진한회색, {{item.cafeName}}</p>
+                        <p class="board">게시글이름, 가장 크게, {{item.boardName}}</p>
+                        <p class="board">주소 회색 글자</p>
+                        <p class="board">좋아요, 댓글 수</p>
                     </div>
 
                 </div>
@@ -58,15 +62,13 @@
                 console.log(this.slidesLeft[index].left);
             },
             resizeHandler() {
-                this.slideLen = rwd.getSlideLen();
                 let size = this.cafeListSize;
+                let prevSlideLen = this.slideLen;
+                this.slideLen = rwd.getSlideLen();
                 while(size--){
-                    let left = parseInt(this.slidesLeft[size].left);
-                    let divide = left / this.slideLen;
-                    let intDivide = parseInt(divide);
-                    left = Number.isInteger(divide)== true ? left : intDivide * this.slideLen;  
+                    let index = parseInt(this.slidesLeft[size].left)/prevSlideLen;
+                    let left = index * this.slideLen;  
                     this.slidesLeft[size].left = left + 'vw';
-                    //커질때랑 작아질때 두가지 경우를 만들어야 할듯.
                 }
             }
         },
@@ -115,14 +117,19 @@
         position: relative;
         left: 0;
     }
-
-
+    .cafe{
+        cursor: pointer;
+    }
     .cafe img{
         transform: translate(50, 50); 
         width: 19vw; 
         height: 250px;
         object-fit: cover;
         margin-right: 1vw;
+    }
+    .board{
+        font-size: 0.8rem;
+        margin: 0;
     }
     .prev-btn{
         opacity: 0.7;
