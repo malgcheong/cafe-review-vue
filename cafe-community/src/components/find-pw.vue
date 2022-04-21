@@ -4,13 +4,13 @@
             <h4>비밀번호찾기</h4>
         <div class="wrap_login">
             <input class="id" type="text" placeholder="아이디를 입력하세요"/>
-            <input class="email" type="text" placeholder="계정에 등록된 이메일을 입력하세요"/>
-            
-            <input class="button_input-code" type="text" placeholder="인증번호 입력" disabled/>
+            <input class="email" type="text" placeholder="계정에 등록된 이메일을 입력하세요" v-model="address"/>
+            <button @click="sendMail">메일보내기</button>
+            <input class="button_input-code" type="text" placeholder="인증번호 입력" disabled v-model="confirmPass"/>
         </div>
         <div class="wrap_find">
             <router-link to="/find-pw-res">
-                <button>확인</button>
+                <button @click="confirm">확인</button>
             </router-link>
             <router-link to="/login">
                 <button>취소</button>
@@ -21,7 +21,20 @@
 </template>
 <script>
 export default {
-    
+    methods: {
+        sendMail(){
+            // send(this.address)
+        },
+        confirm(){
+            // return KEY===this.confirmPass
+        }
+    },
+    data() {
+        return {
+            address:'',
+            confirmPass:''
+        }
+    },
 }
 </script>
 <style >

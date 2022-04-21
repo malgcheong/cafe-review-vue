@@ -17,12 +17,12 @@
             <div class="wrap_info" v-for="(info, idx) in infoItem" :info="info" :key="idx">
                 <label :for="info.id">{{info.label}}</label>
                 <input :id="info.id" v-model="info.data" >
-                <button v-if="info.id=='email'">인증번호 전송</button>
-                <button v-if="info.id=='chkMail'">확인</button>
+                <button v-if="info.id=='email'" @click="getCode">인증번호 전송</button>
+                <button v-if="info.id=='chkMail'" @click="verify">확인</button>
             </div>        
             <br>
             <br>   
-            <button :disabled="!isAgree" @click="clickJoin">회원가입</button>
+            <button :disabled="!join" @click="clickJoin">회원가입</button>
            
         </div>
     </div>
@@ -38,23 +38,67 @@ export default {
         return{
             contractItem:contractItem,
             isAgree:false,
-            infoItem:[
-                {label:'이름', id:'name', data:''},
-                {label:'이메일', id:'email', data:''},
-                {label:'', id:'chkMail', data:''},
-                {label:'비밀번호', id:'pw', data:''},
-                {label:'비밀번호확인', id:'chkPw', data:''}
-            ],
+            infoItem:{
+                "name": {
+                    label:'이름',
+                    id:'name',
+                    data:''
+                    },
+                "email":{label:'이메일', id:'email', data:''},
+                "chkMail":{label:'', id:'chkMail', data:''},
+                "pw": {label:'비밀번호', id:'pw', data:''},
+                "id": {label:'비밀번호확인', id:'chkPw', data:''}
+            },
             onModal:false,
+            code:'',
+            inputCode:'',
+            valid:false,
         }
     },
     methods:{
         clickJoin(){
             this.onModal=true;
+        },
+        //send mail
+        getCode(){
+            const sendName = this.infoItem.name.data;
+            const sendMail= this.infoItem.email.data;
+
+            this.$axios.get(`http://localhost:3001/join`,{
+                params: {
+                    sendName:sendName,
+                    sendMail:sendMail
+                }
+                
+            })
+            .then(res=>{
+                if(res){
+                    // console.log(res)
+                    this.code=res.data
+                }
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
+        },
+        //verify code
+        verify(){
+            if(this.infoItem.chkMail.data==this.code){
+                this.valid=true;
+                alert('인증번호가 맞습니다. 회원가입을 계속 진행해주세요.')
+            }else{
+                alert('인증번호가 맞지 않습니다.')
+                this.valid=false;
+            }
         }
     },
     components:{
         'complete-modal':modal
+    },
+    computed:{
+        join(){
+            return this.isAgree&&this.valid
+        }
     }
 }
 </script>
