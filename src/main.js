@@ -1,14 +1,16 @@
 import Vue from "vue";
 import App from "./App.vue";
-import { router } from "./router/index.js";
+import router from "./router/index";
+import { store } from "./store/store.js";
 import axios from "axios";
-import store from "./store/index";
+import vuetify from "./plugins/vuetify";
 
 Vue.config.productionTip = false;
-Vue.prototype.$http = axios;
+Vue.prototype.$axios = axios;
 
 new Vue({
-  render: (h) => h(App),
+  vuetify,
   router,
   store,
+  render: (h) => h(App),
 }).$mount("#app");
