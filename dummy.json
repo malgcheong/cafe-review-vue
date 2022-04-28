@@ -1,0 +1,108 @@
+{
+    "cafe":[
+        {
+            "cafeID":"0001",
+            "cafeName":"ODOD",
+            "cafePhone":"0511234567",
+            "cafeAddress":"부산 남구 수영로 325번길",
+            "cafeStarAvg":"2.5"
+        },
+                {
+            "cafeID":"0002",
+            "cafeName":"Ediya",
+            "cafePhone":"01083670120",
+            "cafeAddress":"부산광역시 연제구 중앙대로 1075번길 8",
+            "cafeStarAvg":"2.5"
+        }
+    ],
+    
+    "district":[
+        {
+            "distID":"0001",
+            "distName":"연제구"
+        },
+                {
+            "distID":"0002",
+            "distName":"남구"
+        }
+    ],
+
+    "interDist":[
+        {
+            "userID":"0001",
+            "distID":"0001"
+        },
+                {
+            "userID":"0022",
+            "distID":"0008"
+        }
+    ],
+    "like":[
+        {
+            "userID":"0058",
+            "boardID"	:"0178"
+        }
+    ],
+    
+    "board":[
+        {
+            "boardID"	:"0058",
+            "boardName":"부산 최애 카페",
+            "boardContent":"최애 카페 될 것 같아요~",
+            "starFood": "4",
+            "starService": "3",
+            "starPrice": "2",
+            "starMood": "4",
+            "createTime":"2020-01-01 10:10:10",
+            "updateTime":"2020-01-01 10:10:10",
+            "cafeID":"0001",
+            "userID":"0001"
+        },
+        {
+            "boardID"	:"0074",
+            "boardName":"여기 추천합니다",
+            "boardContent":"마카롱 맛있습니다 쫀득쫀득 바닐라 딸기 마카롱>< 꼭 가보세요",
+            "starFood":"5",
+            "starService":"5",
+            "starPrice":"1",
+            "starMood":"5",
+            "createTime":"2020-01-01 10:10:10",
+            "updateTime":"2020-01-01 10:10:10",
+            "cafeID":"0022",
+            "userID":"0058"
+        }	
+    ],
+    "comment":[
+        {
+            "replyID":"0001",
+            "userID":"0001",
+            "boardID":"0001",
+            "replyContent":"여기 쫀맛탱입니다~",
+            "createTime":"2020-01-01 10:10:10",
+            "updateTime":"2020-01-01 10:10:10"
+        }		
+    ],
+    "attach":[
+        {
+            "fileID":"0001",
+            "boardID":"0001",
+            "image":"blob data"
+        }		
+    ],
+    "account":[
+        {
+            "loginID":"0001",
+            "userID":"0001",
+            "passwd":"3j12lEKL#E"
+        }
+    ],
+    "userInfo":[
+        {
+            "userID":"0001",
+            "userName":"0001",
+            "email":"skacjddn7@naver.com",
+            "joinDate":"2020-01-01 10:10:10",
+            "nickName":"맑청" 
+        }
+    ]   
+}
