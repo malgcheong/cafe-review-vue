@@ -1,27 +1,17 @@
-import Vue from 'vue'
-import Home from '../views/Home'
-import Join from '../views/Join'
-import Join2 from '../views/Join2'
-import VueRouter from 'vue-router'
+import Vue from "vue";
+import Home from "../views/home/Home";
+import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-    mode: 'history',
-    routes: [
-        {
-            path: "/",
-            component: Home
-        },
-        {
-            path: "/Join",
-            component: Join
-        },
-        {
-            path: "/Join2",
-            component: Join2
-        }
-    ]
+  mode: "history",
+  routes: [
+    {
+      path: "/",
+      component: Home,
+    },
+  ],
 });
 
-export default router
+export default router;
