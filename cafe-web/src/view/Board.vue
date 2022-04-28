@@ -9,6 +9,7 @@
           <option value="comment">댓글수</option>
         </select>
       </div>
+      <!----------- 게시판 형태 메뉴 --------->
       <div class="form-type">
         <div class="form-area">
           <div v-if="loginState === true" class="write-type">
@@ -38,6 +39,7 @@
         </div>
       </div>
     </div>
+    <!-------------- 게시판 목록 --------------->
     <div
       :class="{
         'list-content': viewType === 'list',
@@ -140,19 +142,24 @@ export default {
     };
   },
   created() {
-    this.$http.get("/api/board").then((res) => {
-      this.boardList = res.data.board;
-      for (let idx = 0; idx < this.boardList.length; idx++) {
-        this.boardList[
-          idx
-        ].imagePath = require(`../image/${this.boardList[idx].imagePath}`);
-      }
+    this.$http
+      .get("/api/board")
+      .then((res) => {
+        this.boardList = res.data;
+        for (let idx = 0; idx < this.boardList.length; idx++) {
+          this.boardList[idx].like = 1;
+          this.boardList[idx].comment = 1;
+          this.boardList[idx].createTime = dayjs(
+            this.boardList[idx].createTime
+          ).format("YYYY-MM-DD HH:mm:ss");
+        }
 
-      this.pageLength = Math.ceil(this.boardList.length / this.perPage); //총 페이지 수 = 게시글수/페이지당 게시글 수
-      this.targetList = this.boardList;
-      this.orderList();
-      this.setPage();
-    });
+        this.pageLength = Math.ceil(this.boardList.length / this.perPage); //총 페이지 수 = 게시글수/페이지당 게시글 수
+        this.targetList = this.boardList;
+        this.orderList();
+        this.setPage();
+      })
+      .catch((error) => console.log(error));
   },
   watch: {
     searchText(val) {
@@ -250,14 +257,14 @@ img.form-type {
   filter: invert(40%) sepia(9%) saturate(4%) hue-rotate(36deg) brightness(87%)
     contrast(85%);
 }
-.list-content {
+/* .list-content {
   table-layout: fixed;
   height: 500px;
 }
 .gallery-content {
   table-layout: fixed;
   height: 1300px;
-}
+} */
 table {
   margin: 0 auto;
   width: 80%;

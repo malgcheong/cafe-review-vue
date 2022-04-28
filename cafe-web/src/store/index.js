@@ -8,6 +8,7 @@ const store = new Vuex.Store({
   state: {
     selectedPost: {},
     loginState: Boolean,
+    userID:String
   },
   getters: {
     isLogin(state) {
@@ -20,6 +21,7 @@ const store = new Vuex.Store({
   mutations: {
     login(state, value) {
       state.loginState = value;
+      state.userID = 'Yeojinny';
     },
 
     selectPost(state, obj) {
