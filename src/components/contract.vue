@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import contractItem from "./assets/contract.js"
+import contractItem from "@/assets/contract.js"
 export default {
   data:function(){
     return{
