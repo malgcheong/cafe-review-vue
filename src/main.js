@@ -9,7 +9,7 @@ Vue.config.productionTip = false;
 Vue.prototype.$axios = axios;
 
 new Vue({
-  router,
+  router,  
   store,
   vuetify,
   render: (h) => h(App)

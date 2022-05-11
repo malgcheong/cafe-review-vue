@@ -1,11 +1,11 @@
 <template lang="">
-    <div>
+    <div style="background-color:#96ABA2">
         <div class="container_login">
         <h4>로그인</h4>
         <div class="wrap_login">
             <input class="id" type="text" placeholder="아이디를 입력하세요" v-model="id"/>
             <input class="pw" type="password" placeholder="pw를 입력하세요" v-model="pw"/>
-            <router-link to="/home">
+            <router-link to="/">
                 <button class="button_login" @click="logIn">로그인</button>
             </router-link>
         </div>
@@ -37,8 +37,9 @@ export default {
             this.$axios.get('https://jsonplaceholder.typicode.com/todos/1')
             .then(res=>{
                 if(res){
+                    this.$emit("close");
+                    this.$store.dispatch("getUserInfo");
                     console.log(this.id,this.pw)
-                    this.$router.push('home')
                 }
             })
             .catch((error)=>{

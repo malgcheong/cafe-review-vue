@@ -102,7 +102,7 @@
         font-weight: bold;
     }
     .cafe-list{
-        width:80vw;
+        width:62vw;
         margin: auto;
     }
     .slide-show{
@@ -122,7 +122,7 @@
     }
     .cafe img{
         transform: translate(50, 50); 
-        width: 19vw; 
+        width: 14vw; 
         height: 250px;
         object-fit: cover;
         margin-right: 1vw;
@@ -159,7 +159,7 @@
 	/* 브라우저 창 width가 1024px보다 작아지는 순간부터 적용 */
 	/* 태블릿 */
         .cafe img{
-            width: 26vw; 
+            width: 30vw; 
             margin-right: 1vw;
         }
     }
@@ -167,7 +167,7 @@
 	/* 브라우저 창 width가 768px보다 작아지는 순간부터 적용 */
     /* 모바일  */
         .cafe img{
-            width: 39vw; 
+            width: 20vw; 
             margin-right: 1vw;
         }
     }

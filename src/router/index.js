@@ -4,11 +4,13 @@ import Home from "@/views/Home";
 import Board from "@/views/Board";
 import BoardDetail from "@/views/BoardDetail";
 import BoardWrite from "@/views/BoardWrite";
+import Mypage from "@/views/MyPage";
+import Test from "@/views/Test2";
 
 Vue.use(Router);
 
 export const router = new Router({
-  mode: "history",
+  mode: "history", 
   routes: [
     {
       path: "/",
@@ -30,5 +32,15 @@ export const router = new Router({
       name: "BoardWrite",
       component: BoardWrite,
     },
+    {
+      path: "/mypage",
+      name: "MyPage",
+      component: Mypage
+    },
+    {
+      path: "/test",
+      name: "Test",
+      component: Test
+    }
   ],
 });

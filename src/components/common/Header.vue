@@ -38,11 +38,12 @@
           <!-- 마이페이지 -->
           <div class="navbar-mypage">
             <div v-show="isLogin" class="navbar-mypage">
-              <div class="navbar-item">마이페이지</div>
+              <router-link to="/mypage" class="navbar-item">마이페이지</router-link>
               <div v-on:click="logout" class="navbar-item">로그아웃</div>
             </div>
             <div v-show="!isLogin">
-              <div v-on:click="login" class="navbar-item">로그인</div>
+              <div v-on:click="open = true" class="navbar-item">로그인</div>
+              <LogIn v-if="open" v-on:close="closeModal" class="modal"/>  
             </div>
           </div>
         </div>
@@ -52,14 +53,22 @@
 </template>
 
 <script>
+import LogIn from '@/components/LogIn'
 export default {
+  components:{
+    LogIn
+  },
+  data(){
+    return{
+      open: false
+    }
+  },
   methods: {
     logout() {
       this.$store.commit("setLoginState", { userID: "" });
     },
-    login() {
-      //폼 입력 없이 바로 로그인 (임시)
-      this.$store.dispatch("getUserInfo");
+    closeModal() {
+      this.open = false;
     },
   },
   computed: {
@@ -79,9 +88,6 @@ export default {
 }
 .desktop-container {
   display: block;
-}
-.navbar {
-  background-color: white;
 }
 .content {
   display: flex;
@@ -103,4 +109,15 @@ export default {
   color: black;
   cursor: pointer;
 }
+.modal{
+  position: fixed;
+  z-index: 999;
+  top: 20%;
+  left: 50%;
+  width: auto;
+  height: auto;
+  margin-left: -10rem;
+  padding: 20px 0px;
+}
+
 </style>

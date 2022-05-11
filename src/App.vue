@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app style="background-color:#DBDFDB">
     <Header />
     <router-view />
     <Footer />
@@ -19,4 +19,5 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+</style>
